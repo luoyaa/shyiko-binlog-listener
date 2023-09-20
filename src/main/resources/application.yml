@@ -1,0 +1,27 @@
+# 端口
+server:
+  port: 8081
+
+# 数据源配置
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/binlog_demo?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8
+    username: root
+    password: root
+
+# binlog监听配置
+binlog:
+  host: 127.0.0.1
+  port: 3306
+  username: root
+  password: root
+  database: binlog_demo
+  # 这个sql可以查询到对应的serverId, SHOW GLOBAL VARIABLES LIKE '%server_id%'
+  serverId: 1
+  # 这里我们想知道binlog_demo库中的用户表，订单表，支付记录表的数据（示例：<database>.<table>）
+  tables:
+    - binlog_demo.sys_user
+    - binlog_demo.order
+    - binlog_demo.pay_record
