@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 /**
- * binlog常量
+ * binlog配置信息
  *
  * @author luoyaa
  */
